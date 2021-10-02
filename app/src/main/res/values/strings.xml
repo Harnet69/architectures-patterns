@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ArchPattern</string>
+    <string name="app_name">Architecture patterns</string>
     <string name="pattern_mvc">MVC</string>
     <string name="pattern_mvp">MVP</string>
     <string name="pattern_mvvm">MVVM</string>
