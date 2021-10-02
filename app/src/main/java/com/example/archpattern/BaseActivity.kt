@@ -6,5 +6,5 @@ import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity: AppCompatActivity() {
 
-    abstract fun getArchIntent(context: Context): Intent
+    fun getArchIntent(context: Context) = Intent(context, this::class.java)
 }

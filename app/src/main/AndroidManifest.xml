@@ -11,16 +11,20 @@
         android:theme="@style/Theme.ArchPattern">
         <activity
             android:name=".MVIActivity.MVIActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/pattern_mvi" />
         <activity
             android:name=".mvvm.MVVMActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/pattern_mvvm" />
         <activity
             android:name=".mvp.MVPActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/pattern_mvp" />
         <activity
             android:name=".mvc.MVCActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/pattern_mvc" />
         <activity
             android:name=".ArchActivity"
             android:exported="true">
