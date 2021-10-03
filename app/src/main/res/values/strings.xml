@@ -3,5 +3,6 @@
     <string name="pattern_mvc">MVC</string>
     <string name="pattern_mvp">MVP</string>
     <string name="pattern_mvvm">MVVM</string>
-    <string name="pattern_mvi">MVVI</string>
+    <string name="pattern_mvi">MVI</string>
+    <string name="error_network">Network error, try again later</string>
 </resources>

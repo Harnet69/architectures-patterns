@@ -38,7 +38,7 @@ class MVPActivity : BaseActivity(), UniversitiesPresenter.UniversitiesView {
     }
 
     override fun onError(errorMsg: String?){
-        Toast.makeText(this,"Network error, try later", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,resources.getString(R.string.error_network), Toast.LENGTH_LONG).show()
         Log.i("UniReceived", "onSuccess: $errorMsg")
     }
 
