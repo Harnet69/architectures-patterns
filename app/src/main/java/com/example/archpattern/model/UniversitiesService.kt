@@ -18,5 +18,7 @@ class UniversitiesService {
         .create(UniversitiesAPI::class.java)
 
     //get observable List from API
-    fun getUniversities(): Single<List<University>> = universitiesAPI.getUniversities()
+    fun getRemoteUniversities(): Single<List<University>> = universitiesAPI.getUniversities()
+
+    //TODO create getLocalUniversities() function after creating repository to manage a data receiving
 }
