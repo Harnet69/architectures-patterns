@@ -12,7 +12,7 @@
         android:theme="@style/Theme.ArchPattern"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MVIActivity.MVIActivity"
+            android:name=".mvi.MVIActivity"
             android:exported="true"
             android:label="@string/pattern_mvi" />
         <activity

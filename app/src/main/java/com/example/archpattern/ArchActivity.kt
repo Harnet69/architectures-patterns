@@ -3,7 +3,7 @@ package com.example.archpattern
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.archpattern.MVIActivity.MVIActivity
+import com.example.archpattern.mvi.MVIActivity
 import com.example.archpattern.databinding.ArchActivityBinding
 import com.example.archpattern.mvc.MVCActivity
 import com.example.archpattern.mvp.MVPActivity
