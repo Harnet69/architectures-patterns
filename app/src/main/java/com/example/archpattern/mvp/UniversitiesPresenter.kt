@@ -18,6 +18,8 @@ class UniversitiesPresenter(val universitiesView: UniversitiesView) {
 
     @SuppressLint("CheckResult")
     fun fetchCountriesWithRx() {
+        universitiesView.onLoading()
+
         universitiesService.getRemoteUniversities()
             // do operation on background thread
             .subscribeOn(Schedulers.newThread())
@@ -38,6 +40,7 @@ class UniversitiesPresenter(val universitiesView: UniversitiesView) {
     // Separation between view and business logic
     interface UniversitiesView {
         fun setValues(universities: List<String>)
+        fun onLoading()
         fun onError(errorMsg: String?)
     }
 }

@@ -1,10 +1,12 @@
 package com.example.archpattern.mvc
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.archpattern.BaseActivity
 import com.example.archpattern.R
 import com.example.archpattern.databinding.ActivityMvcactivityBinding
@@ -35,13 +37,24 @@ class MVCActivity : BaseActivity() {
     }
 
     fun onError(errorMsg: String?){
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = false
         Toast.makeText(this,resources.getString(R.string.error_network), Toast.LENGTH_LONG).show()
         Log.i("UniReceived", "onSuccess: $errorMsg")
+
+    }
+
+    fun onLoading(){
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = true
     }
 
     fun setValues(values: List<String>){
         universitiesList.clear()
         universitiesList.addAll(values)
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = false
+        binding.list.isVisible = true
         adapter?.notifyDataSetChanged()
     }
 }

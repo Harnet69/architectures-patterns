@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.archpattern.BaseActivity
 import com.example.archpattern.R
 import com.example.archpattern.databinding.ActivityMvpactivityBinding
@@ -38,13 +39,22 @@ class MVPActivity : BaseActivity(), UniversitiesPresenter.UniversitiesView {
     }
 
     override fun onError(errorMsg: String?){
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = false
         Toast.makeText(this,resources.getString(R.string.error_network), Toast.LENGTH_LONG).show()
         Log.i("UniReceived", "onSuccess: $errorMsg")
+    }
+
+    override fun onLoading(){
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = true
     }
 
     override fun setValues(universities: List<String>){
         universitiesList.clear()
         universitiesList.addAll(universities)
+        binding.list.isVisible = true
+        binding.progressBar.isVisible = false
         adapter?.notifyDataSetChanged()
     }
 }

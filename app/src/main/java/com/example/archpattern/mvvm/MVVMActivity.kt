@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProviders
 import com.example.archpattern.BaseActivity
 import com.example.archpattern.R
@@ -43,19 +44,32 @@ class MVVMActivity : BaseActivity() {
         viewModel.universitiesList.observe(this, {
             setValues(it)
         })
+        viewModel.isLoading.observe(this, {
+            if(it) onLoading()
+        })
+
         viewModel.universitiesError.observe(this, {
             it?.let { onError(it)}
         })
     }
 
     private fun onError(errorMsg: String?) {
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = false
         Toast.makeText(this, resources.getString(R.string.error_network), Toast.LENGTH_LONG).show()
         Log.i("UniReceived", "onSuccess: $errorMsg")
+    }
+
+    fun onLoading(){
+        binding.list.isVisible = false
+        binding.progressBar.isVisible = true
     }
 
     private fun setValues(universities: List<String>) {
         universitiesList.clear()
         universitiesList.addAll(universities)
+        binding.list.isVisible = true
+        binding.progressBar.isVisible = false
         adapter?.notifyDataSetChanged()
     }
 }

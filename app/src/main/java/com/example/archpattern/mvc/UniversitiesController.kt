@@ -18,11 +18,13 @@ class UniversitiesController(val view: MVCActivity) {
     private val universitiesService = UniversitiesService()
 
     init {
+        view.onLoading()
         fetchCountriesWithRx()
     }
 
     @SuppressLint("CheckResult")
     fun fetchCountriesWithRx() {
+
         universitiesService.getRemoteUniversities()
             // do operation on background thread
             .subscribeOn(Schedulers.newThread())
