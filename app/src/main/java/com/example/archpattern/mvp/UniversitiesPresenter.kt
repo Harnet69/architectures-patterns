@@ -13,11 +13,11 @@ class UniversitiesPresenter(val universitiesView: UniversitiesView) {
     //Interface for interacting with any view
 
     init {
-        fetchCountries()
+        fetchCountriesWithRx()
     }
 
     @SuppressLint("CheckResult")
-    fun fetchCountries() {
+    fun fetchCountriesWithRx() {
         universitiesService.getRemoteUniversities()
             // do operation on background thread
             .subscribeOn(Schedulers.newThread())

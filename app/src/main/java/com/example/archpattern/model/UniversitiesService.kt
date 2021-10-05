@@ -1,6 +1,7 @@
 package com.example.archpattern.model
 
 import io.reactivex.Single
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,6 +20,8 @@ class UniversitiesService {
 
     //get observable List from API
     fun getRemoteUniversities(): Single<List<University>> = universitiesAPI.getUniversities()
+
+    suspend fun getRemoteUniversitiesCoroutines(): Response<List<University>> = universitiesAPI.getUniversitiesCoroutines()
 
     //TODO create getLocalUniversities() function after creating repository to manage a data receiving
 }

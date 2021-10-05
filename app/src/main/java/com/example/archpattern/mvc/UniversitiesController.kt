@@ -1,22 +1,28 @@
 package com.example.archpattern.mvc
 
 import android.annotation.SuppressLint
+import android.util.Log
 import com.example.archpattern.model.UniversitiesService
 import com.example.archpattern.model.University
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
 
 class UniversitiesController(val view: MVCActivity) {
     //TODO inject by Hilt it instead of instantiate
     private val universitiesService = UniversitiesService()
 
     init {
-        fetchCountries()
+        fetchCountriesWithRx()
     }
 
     @SuppressLint("CheckResult")
-    fun fetchCountries() {
+    fun fetchCountriesWithRx() {
         universitiesService.getRemoteUniversities()
             // do operation on background thread
             .subscribeOn(Schedulers.newThread())
